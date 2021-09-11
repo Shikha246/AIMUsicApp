@@ -1,6 +1,7 @@
 song1="";
 song2="";
-status="";
+status1="";
+status2="";
 function preload()
 {
 	song1 = loadSound("believer.mp3");
@@ -55,13 +56,25 @@ function modelLoaded() {
       fill("#FF0000");
       stroke("#FF0000");
       
-      status=song1.isPlaying();
+      status1=song1.isPlaying();
       if(scoreLeftWrist > 0.2){
         circle(leftWristX,leftWristY,20); 
         song2.stop(); 
-        if(status=="false"){
+        console.log("Believer playing");
+        if(status1=="false"){
             song1.play();
             document.getElementById("song").innerHTML="believer";
+        }
+      }
+
+      status2=song2.isPlaying();
+      if(scoreRightWrist > 0.2){
+        circle(rightWristX,rightWristY,20); 
+        song1.stop(); 
+        console.log("Marshmello playing");
+        if(status2=="false"){
+            song2.play();
+            document.getElementById("song").innerHTML="Marshmello";
         }
       }
       
